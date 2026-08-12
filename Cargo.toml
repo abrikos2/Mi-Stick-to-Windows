@@ -1,21 +1,41 @@
 [package]
 name = "mi-stick-bridge"
-version = "0.2.0"
-edition = "2021"
+version = "1.0.0"
+edition = "2024"
+description = "Mi Stick Bridge - управление Mi TV Stick с Windows"
+authors = ["Даниил"]
+
+[package.metadata.winresource]
+icon = "assets/icon.ico"
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }
 rdev = "0.5"
-
 windows = { version = "0.58", features = [
     "Win32_Foundation",
     "Win32_UI_WindowsAndMessaging",
     "Win32_Graphics_Gdi",
     "Win32_UI_Input_KeyboardAndMouse",
 ] }
-
+egui = "0.28"
+eframe = "0.28"
+tray-icon = "0.19"
+tao = "0.31"
+rfd = "0.14"
+image = { version = "0.25", default-features = false, features = ["png", "ico"] }
 serde = { version = "1", features = ["derive"] }
 toml = "0.8"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 flume = "0.11"
+winit = "0.29"
+
+[build-dependencies]
+winresource = "0.1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
