@@ -1,0 +1,16 @@
+[mi_stick]
+ip = "192.168.0.250"
+adb_port = 5555
+adb_path = "C:\\Users\\Даниил\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe"
+tunnel_port = 7878
+
+[display]
+# Mi Stick СЛЕВА от Windows монитора
+mi_stick_position = "left"
+
+[input]
+mouse_sensitivity = 1.0
+
+[hotkeys]
+switch_to_mi_stick = "Ctrl+Shift+Left"
+switch_to_windows = "Ctrl+Shift+Right"
