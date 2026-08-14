@@ -65,7 +65,7 @@ pub fn start_hooks() {
 
 unsafe extern "system" fn kb_proc(n_code: i32, w_param: WPARAM, l_param: LPARAM) -> LRESULT {
     if n_code == HC_ACTION {
-        let kb = &*(l_param.0 as *const KBDLLHOOKSTRUCT);
+        let kb = unsafe { &*(l_param.0 as *const KBDLLHOOKSTRUCT) };
         let vk = kb.vkCode;
         let down = w_param.0 == WM_KEYDOWN as usize || w_param.0 == WM_SYSKEYDOWN as usize;
 

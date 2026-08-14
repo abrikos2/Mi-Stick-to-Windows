@@ -7,6 +7,8 @@ mod settings_ui;
 mod state;
 mod tray;
 mod win_api;
+mod scrcpy_launcher;
+
 
 use adb_bridge::AdbBridge;
 use config::load_config;
@@ -78,6 +80,8 @@ async fn main() {
             }
         }
     }
+    // Запуск scrcpy параллельно
+    scrcpy_launcher::start_scrcpy(&config.scrcpy);
 
     start_hooks();
     input_capture::start_input_capture(shared_state.clone(), tx.clone());
@@ -208,6 +212,7 @@ async fn handle_tray(
         TrayCommand::Quit => {
             info!("Выход");
             set_blocking(false);
+            scrcpy_launcher::stop_scrcpy();
             std::process::exit(0);
         }
     }

@@ -1,4 +1,4 @@
-use crate::config::{AppConfig, DisplayConfig, InputConfig, MiStickConfig};
+use crate::config::{AppConfig, DisplayConfig, InputConfig, MiStickConfig, ScrcpyConfig};
 use eframe::egui;
 use std::sync::{Arc, Mutex};
 use tracing::{error, info};
@@ -65,6 +65,7 @@ impl SettingsState {
             input: InputConfig {
                 mouse_sensitivity: self.sensitivity,
             },
+            scrcpy: ScrcpyConfig::default()
         })
     }
 }

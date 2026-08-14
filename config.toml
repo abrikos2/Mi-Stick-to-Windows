@@ -1,5 +1,5 @@
 [mi_stick]
-ip = "192.168.0.250"
+ip = "192.168.0.201"
 adb_port = 5555
 adb_path = 'C:\platform-tools\adb.exe'
 tunnel_port = 7878
@@ -10,3 +10,9 @@ mi_stick_position = "left"
 
 [input]
 mouse_sensitivity = 1.100000023841858
+
+[scrcpy]
+enabled = true
+path = "C:\scrcpy\scrcpy.exe"
+device = "192.168.0.201:5555"
+extra_args = ["--no-video", "--no-window", "--audio-codec=opus", "--audio-buffer=50"]

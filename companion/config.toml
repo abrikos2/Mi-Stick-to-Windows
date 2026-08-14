@@ -1,4 +1,0 @@
-[target.aarch64-linux-android]
-# Путь к линкеру из NDK
-# Замените путь на свой!
-linker = "C:\android-ndk\toolchains\llvm\prebuilt\windows-x86_64\bin\armv7a-linux-androideabi21-clang.cmd"
